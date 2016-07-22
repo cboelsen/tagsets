@@ -1,0 +1,32 @@
+---
+version: 1
+disable_existing_loggers: False
+
+formatters:
+  simple:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+handlers:
+  info-to-console:
+    class: logging.StreamHandler
+    # Usually, don't log to console
+    level: ERROR
+#    level: INFO
+    formatter: simple
+    stream: ext://sys.stdout
+
+  filehandler:
+    class: logging.FileHandler
+    formatter: simple
+    filename: logging.out
+    encoding: utf8
+
+loggers:
+  tagsets:
+    level: DEBUG
+    handlers: [filehandler]
+    propagate: yes
+
+root:
+  level: INFO
+  handlers: [info-to-console, filehandler]

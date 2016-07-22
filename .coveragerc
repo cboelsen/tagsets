@@ -1,0 +1,10 @@
+[run]
+branch=True
+omit=tagsets/test/*
+data_file=/home/gerard/projects/tagsets/.coverage
+
+[report]
+exclude_lines=
+    class SearchPathVisitor
+    def __repr__
+    def repr_detail
