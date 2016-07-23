@@ -1,7 +1,6 @@
 [run]
 branch=True
 omit=tagsets/test/*
-data_file=/home/gerard/projects/tagsets/.coverage
 
 [report]
 exclude_lines=
