@@ -23,18 +23,18 @@ class FileMatcherBase(metaclass=ABCMeta):
     # Override for more specific behaviour
     @abstractmethod
     def interested_in_subdirs_of(self, path):
-        pass
+        raise NotImplementedError
 
     # this won't be called in a directory if any parent directory returns false for
     # interested_in_subdirs_of
     @abstractmethod
     def interested_in_files_in(self, path):
-        pass
+        raise NotImplementedError
 
     # TODO: pass the path as well as the filename
     @abstractmethod
     def interested_in_file(self, filename):
-        pass
+        raise NotImplementedError
 
 
 class FileMatcher(FileMatcherBase):
@@ -171,4 +171,4 @@ class FileMatchVisitor(metaclass=ABCMeta):
 
     @abstractmethod
     def visit_file(self, path, matchers):
-        pass
+        raise NotImplementedError

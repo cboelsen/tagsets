@@ -16,6 +16,7 @@ pg = PathGenerator(TEST_DATA_PATH)
 
 class FileMatchTestVisitor(FileMatchVisitor):
     def __init__(self):
+        super().__init__()
         self.visitations = []
 
     def visit_file(self, filename, matchers):

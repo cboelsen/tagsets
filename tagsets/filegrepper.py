@@ -40,4 +40,4 @@ class TextMatchVisitor(metaclass=ABCMeta):
 
     @abstractmethod
     def visit_match(self, captured_text, filename, linenumber, matcher):
-        pass
+        raise NotImplementedError

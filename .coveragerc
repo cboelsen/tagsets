@@ -4,6 +4,6 @@ omit=tagsets/test/*
 
 [report]
 exclude_lines=
-    class SearchPathVisitor
     def __repr__
     def repr_detail
+    raise NotImplementedError
