@@ -33,35 +33,35 @@ An example tag config file
 NB. File format may still be subject to change.
 
 .. code:: yaml
-   ---
-   # General config
-   basepath: "/root/path/to/tagged/files"
-   ignoredirs:
-     - ".git"
 
-   # Define the tag sets
-   tagsets:
-     - tagdefs:
-         singular: definition
-         plural: definitions
-         regex: '[(TAG_[\w\._]+)\]'
-         search:
-           - file: "tagfile"
+ # General config
+ basepath: "/root/path/to/tagged/files"
+ ignoredirs:
+   - ".git"
 
-     - tagrefs:
-         singular: reference
-         plural: references
-         # (?:...) defines a non-capturing group. Only one capturing group should exist
-         # and should capture the matchable part of the tag.
-         regex: '(?:ref|see)\[(TAG_[\w\._]+)\]'
-         search:
-           - file: "/absolute/path/to/some document/elsewhere.txt"
-           - glob:
-               paths:
-                 - "src/relative/path/to/search"
-               files:
-                 - "*.h"
-                 - "*.c"
+ # Define the tag sets
+ tagsets:
+   - tagdefs:
+       singular: definition
+       plural: definitions
+       regex: '[(TAG_[\w\._]+)\]'
+       search:
+         - file: "tagfile"
+
+   - tagrefs:
+       singular: reference
+       plural: references
+       # (?:...) defines a non-capturing group. Only one capturing group should exist
+       # and should capture the matchable part of the tag.
+       regex: '(?:ref|see)\[(TAG_[\w\._]+)\]'
+       search:
+         - file: "/absolute/path/to/some document/elsewhere.txt"
+         - glob:
+             paths:
+               - "src/relative/path/to/search"
+             files:
+               - "*.h"
+               - "*.c"
 
 Contributing
 ============
