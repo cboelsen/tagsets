@@ -77,7 +77,7 @@ class GlobSearchConf(SearchConf):
         fms = []
         for path in self.get_searchdirs():
             if not os.path.isabs(path):
-                path = os.path.join(basepath, path)
+                path = os.path.normpath(os.path.join(basepath, path))
             fm = TagFileMatcher(path, textmatcher)
             for ignoredir in self.ignoredirs:
                 fm.add_ignored_dirname(ignoredir)
@@ -163,7 +163,7 @@ class TagConf(ConfBC):
 
 class Config(ConfBC):
     def __init__(self):
-        self.basepath = '/'
+        self.basepath = os.getcwd()
         self.ignoredirs = []
         self.tagconfs = {}
 
@@ -179,8 +179,10 @@ class Config(ConfBC):
         logger.debug("Initialising Config from: %r" % config_ng)
         temp = cls()
 
-        # TODO will want to use pwd if not given
         temp.basepath = config_ng['basepath']
+        if not os.path.isabs(temp.basepath):
+            temp.basepath = os.path.abspath(temp.basepath)
+
         temp.ignoredirs = config_ng.get('ignoredirs', [])
         
         for tsc in config_ng['tagsets']:

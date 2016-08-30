@@ -1,6 +1,6 @@
 # Test configuration file
 
-basepath: "path"
+basepath: "/path"
 
 ignoredirs:
   - ".dir_a"

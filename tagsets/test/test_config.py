@@ -27,7 +27,7 @@ def test_config_file_does_not_exist():
 def test_config_file_with_multiple_tagset_configurations():
     conf = Config.fromfile(pg.getpath('multiple-tagsets.yaml'))
     assert isinstance(conf, Config)
-    assert conf.basepath == 'path'
+    assert conf.basepath == '/path'
     assert conf.ignoredirs == ['.dir_a', '.dir_b']
     assert len(conf.tagconfs) == 2
     
@@ -84,7 +84,7 @@ def test_file_filematcher():
 
 def test_file_relative_path():
     yaml_conf = {
-        'basepath': 'path',
+        'basepath': '/path',
         'tagsets': [
             {'tagset': {
                 'singular': 'tag',
@@ -98,7 +98,7 @@ def test_file_relative_path():
 
     assert len(matchers) == 1
     fm = matchers[0]
-    assert fm.path == "path"
+    assert fm.path == "/path"
     assert fm.filepatterns == ["file.txt"]
     assert fm.include_subdirs == False
 
@@ -124,7 +124,7 @@ def test_file_absolute_path():
 
 def test_glob_filematcher():
     yaml_conf = {
-        'basepath': 'path',
+        'basepath': '/path',
         'tagsets': [
             {'tagset': {
                 'singular': 'tag',
@@ -143,7 +143,7 @@ def test_glob_filematcher():
     assert len(matchers) == 1
     fm = matchers[0]
     assert isinstance(fm, TagFileMatcher)
-    assert fm.path == "path/."
+    assert fm.path == "/path"
     assert fm.include_subdirs == True
     assert fm.ignoredirs == ['dira']
     assert fm.filepatterns == ["*.txt"]
@@ -177,7 +177,7 @@ def test_glob_absolute_path():
 
 def test_global_ignoredirs():
     yaml_conf = {
-        'basepath': 'path',
+        'basepath': '/path',
         'ignoredirs': ['.ignorea', 'ignoreb'],
         'tagsets': [
             {'tagset': {
@@ -200,11 +200,11 @@ def test_global_ignoredirs():
     assert len(matchers) == 2
 
     fm1 = [ fm for fm in matchers
-            if fm.path == "path/path1" ][0]
+            if fm.path == "/path/path1" ][0]
     assert sorted(fm1.ignoredirs) == sorted(['.ignorea', 'ignoreb', 'ignorec'])
 
     fm2 = [ fm for fm in matchers
-            if fm.path == "path/path2" ][0]
+            if fm.path == "/path/path2" ][0]
     assert sorted(fm2.ignoredirs) == sorted(['.ignorea', 'ignoreb'])
 
 def test_tagsets():
