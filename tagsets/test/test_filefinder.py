@@ -37,7 +37,7 @@ def test_walk_to_single_file():
     assert (testdir.getpath("file"),matcher) in visitor.visitations
 
 # Note this is a tricky test for coverage - it all depends on the order that directory entries are returned, which can't be controlled
-# There may be a case for stubbing some of this
+# TODO There may be a case for stubbing some of this
 def test_exclude_subdirs_for_one_party_but_not_another():
     testdir = pg.getsubgenerator("exclude_subdirs_for_some_parties")
     
