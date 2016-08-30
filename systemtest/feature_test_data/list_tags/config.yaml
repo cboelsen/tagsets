@@ -1,0 +1,23 @@
+basepath: "."
+
+ignoredirs:
+  - ".git"
+  - "__pycache__"
+  - "*.egg-info"
+  - ".cache"
+  - ".eggs"
+
+tagsets:
+
+  - tags:
+      singular: "tag"
+      plural: "tags"
+
+      regex: 'tag\[([\w-]+)\]'
+
+      search:
+        - glob:
+            paths:
+              - "."
+            files:
+              - "*"
