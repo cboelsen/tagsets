@@ -1,0 +1,7 @@
+This is a test file with a number of tags:
+source[TAG1]
+
+
+This is a line that contains part of TAG1, but not the whole.
+This line contains the word source but not the square brackets.
+This line contains half a tag but does not compete it: source[TA

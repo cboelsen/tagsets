@@ -1,0 +1,33 @@
+# Test configuration file
+
+basepath: "/path"
+
+ignoredirs:
+  - ".dir_a"
+  - ".dir_b"
+
+tagsets:
+
+  # First tagset
+  - defs:
+      singular: "definition"
+      plural: "definitions"
+
+      regex: 'def\[([\w-]+)\]'
+
+      search:
+        - file: "definitions.txt"
+
+  # Second tagset
+  - refs:
+      singular: "reference"
+      plural: "references"
+
+      regex: 'ref\[([\w-]+)\]'
+
+      search:
+        - glob:
+            paths:
+              - "references"
+            files:
+              - "*.txt"

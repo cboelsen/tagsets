@@ -1,0 +1,9 @@
+[run]
+branch=True
+omit=tagsets/test/*
+
+[report]
+exclude_lines=
+    def __repr__
+    def repr_detail
+    raise NotImplementedError

@@ -1,0 +1,58 @@
+# Top level contains global configurations
+type: map
+mapping:
+  basepath: {type: str}
+  ignoredirs:
+    type: seq
+    sequence:
+      - type: str
+
+  # The tagsets sequence contains all of the tag configurations
+  tagsets:
+    type: seq
+    sequence:
+      - type: map
+        mapping:
+          regex;([a-z]+):
+            # The configuration is defined as a bunch of named mappings, currently all required
+            type: map
+            mapping:
+              singular: {type: str, required: True}  # The singular form to use when identifying a tag in this set
+              plural:   {type: str, required: True}  # The plural form to use when identifying tags in this set
+              regex:    {type: str, required: True}  # The regular expression used to find the tag
+              search:
+                # The locations to search for the tags
+                # This is a set of mappings of either direct filenames or 'glob' patterns to search
+                type: seq
+                required: True
+                sequence:
+                  - type: map
+                    mapping:
+                      file: {type: str}
+                      glob:
+                        # Globs are two maps: paths and files
+                        type: map
+                        mapping:
+                          paths:
+                            # Paths are a list of path locations to search through
+                            type: seq
+                            required: True
+                            sequence:
+                              - type: str
+                          files:
+                            # Files are a list of filename patterns to search in
+                            type: seq
+                            required: True
+                            sequence:
+                              - type: str
+                          ignore:
+                            # ignore is a list of filename patterns to exclude
+                            type: seq
+                            sequence:
+                              - type: str
+                          ignoredirs:
+                            # ignoredirs is a list of directory names to exclude from search
+                            type: seq
+                            sequence:
+                              - type: str
+

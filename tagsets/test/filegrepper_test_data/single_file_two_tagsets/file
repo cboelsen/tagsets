@@ -1,0 +1,18 @@
+This is a file with two types of tags being used, representing declarations and definitions respectively.
+
+decl[A] Declaration of item A
+
+Some text
+
+
+decl[B] You've guessed it...
+
+
+
+This next one is interesting because a declaration and definition appear on the same line.
+
+def[A] The definition of A happens to include a further declaration: decl[C]
+
+def[C] follows
+
+But maybe someone forgot about defining B?
