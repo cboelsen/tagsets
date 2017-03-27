@@ -2,7 +2,7 @@ import os
 import pytest
 
 from tagsets.filegrepper import TextMatcher, TextMatchVisitor, grep_file
-from tagsets.test.testsupport import PathGenerator
+from testsupport import PathGenerator
 
 # Path to the test files / directories
 TEST_DATA_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), "filegrepper_test_data")

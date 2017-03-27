@@ -3,7 +3,7 @@ import pytest
 
 import tagsets.cli
 
-from tagsets.test.testsupport import PathGenerator, working_directory
+from testsupport import PathGenerator, working_directory
 
 # Path to the test files / directories
 TEST_DATA_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), "feature_test_data")

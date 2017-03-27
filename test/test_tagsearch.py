@@ -3,7 +3,7 @@ import pytest
 
 from tagsets.tagsearch import TagFileMatcher, TagTextMatcher, TagMatcherVisitor
 from tagsets.tagset import Tag, TagSet
-from tagsets.test.testsupport import PathGenerator
+from testsupport import PathGenerator
 
 # Path to the test files / directories
 TEST_DATA_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), "tagsearch_test_data")

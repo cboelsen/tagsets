@@ -2,7 +2,7 @@ import os
 import pytest
 
 from tagsets.filefinder import FileMatcher, FileMatchVisitor, search_paths
-from tagsets.test.testsupport import PathGenerator
+from testsupport import PathGenerator
 
 # TODO look into whether a fixture would be appropriate for the pathgenerator
 

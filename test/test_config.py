@@ -4,7 +4,7 @@ import yaml
 
 from tagsets.config import Config, TagConf, FileSearchConf, GlobSearchConf
 from tagsets.tagsearch import TagFileMatcher, TagTextMatcher
-from tagsets.test.testsupport import PathGenerator
+from testsupport import PathGenerator
 
 # path to the test files / directories
 

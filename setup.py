@@ -50,9 +50,11 @@ setup(
     keywords='tags traceability development',
 
     packages=['tagsets'],
+    package_data={'': ['config-schema.yaml']},
     install_requires=['docopt>=0.6.2',
                       'PyYAML>=3.11',
-                      'pykwalify>=1.5.0'
+                      'pykwalify>=1.5.0',
+                      'termcolor>=1.1.0',
     ],
 
     setup_requires=['pytest-runner'],
